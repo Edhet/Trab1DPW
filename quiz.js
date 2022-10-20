@@ -41,7 +41,7 @@ function submitClicked() {
     if (input.textFive == answers.textFive) {counter++}
 
     percent = (100 * counter) / 10;
-    document.getElementById("result").innerHTML = `Acertou: ${counter} | Porcentagem: ${percent}%`;
+    document.getElementById("result").innerHTML = `Acertou: ${counter}/10 | Porcentagem: ${percent}%`;
 }
 
 function readInput() {

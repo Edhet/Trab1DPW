@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+:root {
+    --blue: #0d6efd;
+    --darkerBlue: #1057c2;
+    --navGrey: #a7a7a7;
+}
+
+.navbar {
+    display: flex;
+    vertical-align: bottom;
+    font-family: "Quicksand";
+    font-weight: bold;
+    background-color: var(--blue);
+    padding: 1%;
+    margin: 0 0 1% 0;
+}
+
+.navbar a:link {
+    text-decoration: none;
+}
+
+.navbar a:visited {
+    text-decoration: none;
+}
+
+.navbar a:active {
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: solid;
+    color: var(--navGrey);
+    transition: color 0.3s;
+}
+
+.navbar h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.navText {
+    color: white;
+    margin: auto 1.35%;
+}
+
+.question {
+    margin: 0 0 1% 0;
+}
+
+.mainDiv {
+    margin: 0 15%;
+}
+
+.button {
+    background-color: var(--blue);
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    min-width: 5rem;
+    min-height: 1.5rem;
+    cursor: pointer;
+}
+
+.btnico {
+    background: url('./assets/play.svg') no-repeat no-repeat;
+    width: 20px;
+    height: 20px;
+    border: 0px;
+}
+
+input[type=text] {
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.button:hover {
+    text-decoration: solid;
+    background-color: var(--darkerBlue);
+    transition: background-color 0.3s;
+}
+
+.text {
+    font-family: "Open Sans";
+}

@@ -9,55 +9,72 @@
   </head>
   <body>
     <header>
-      <nav>
-        <h1>Teste</h1>
+      <nav class="navbar">
+          <h2 class="navText">Quiz</h2>
+          <a href="index.html" class="navText">Início</a>
+          <a href="historia.html" class="navText">História</a>
+          <a href="curiosidades.html" class="navText">Curiosidades</a>
+          <a href="quiz.html" class="navText">Quiz</a>
       </nav>
     </header>
-    <main>
-      <div>
+
+    <main class="text mainDiv">
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="radio" name="radio1" value="1" checked> Resp 1
         <input type="radio" name="radio1" value="2"> Resp 2
         <input type="radio" name="radio1" value="3"> Resp 3
         <input type="radio" name="radio1" value="4"> Resp 4
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="text" id="text1"> Pergunta
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="radio" name="radio2" value="1" checked> Resp 1
         <input type="radio" name="radio2" value="2"> Resp 2
         <input type="radio" name="radio2" value="3"> Resp 3
         <input type="radio" name="radio2" value="4"> Resp 4
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="checkbox" id="check1"> Perg
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="text" id="text2"> Pergunta
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="text" id="text3"> Pergunta
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="radio" name="radio3" value="1" checked> Resp 1
         <input type="radio" name="radio3" value="2"> Resp 2
         <input type="radio" name="radio3" value="3"> Resp 3
         <input type="radio" name="radio3" value="4" > Resp 4
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="text" id="text4"> Pergunta
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="text" id="text5"> Pergunta
       </div>
-      <div>
+      <div class="question">
+        <label>Lorem Ipsum</label> <br>
         <input type="checkbox" id="check2"> Perg
+      
       </div>
-      <button onclick="submitClicked()">Submit</button>
+      <button onclick="submitClicked()" class="button">Enviar</button>
       <div>
         <h2 id="result"></h2>
       </div>
     </main>
+
     <footer></footer>
     <script src="quiz.js"></script>
   </body>
