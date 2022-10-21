@@ -5,20 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css"/>
     <link rel="stylesheet" href="normalize.css">
+    <link rel="icon" href="./assets/hockey.svg">
     <title>Hockey - Quiz</title>
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-          <h2 class="navText">Quiz</h2>
-          <a href="index.html" class="navText">Início</a>
-          <a href="historia.html" class="navText">História</a>
-          <a href="curiosidades.html" class="navText">Curiosidades</a>
-          <a href="quiz.html" class="navText">Quiz</a>
-      </nav>
-    </header>
-
-    <main class="text mainDiv">
+    <script src="./script/navbar.js" id="navScript"></script>
+    <main class="mainDiv">
       <div class="question">
         <label>Lorem Ipsum</label> <br>
         <input type="radio" name="radio1" value="1" checked> Resp 1
@@ -62,20 +54,19 @@
       </div>
       <div class="question">
         <label>Lorem Ipsum</label> <br>
-        <input type="text" id="text5"> Pergunta
+        <input type="text" id="text5" class="glowing-border"> Pergunta
       </div>
       <div class="question">
         <label>Lorem Ipsum</label> <br>
-        <input type="checkbox" id="check2"> Perg
+        <input type="checkbox" id="check2" class="coloredInput"> Perg
       
       </div>
       <button onclick="submitClicked()" class="button">Enviar</button>
       <div>
-        <h2 id="result"></h2>
+        <h2 id="result" class="quiz"></h2>
       </div>
     </main>
-
-    <footer></footer>
-    <script src="quiz.js"></script>
+    <script src="./script/footer.js" id="footerScript"></script>
+    <script src="./script/quiz.js"></script>
   </body>
 </html>

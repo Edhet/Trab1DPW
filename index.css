@@ -1,37 +1,35 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-@import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 :root {
     --blue: #0d6efd;
     --darkerBlue: #1057c2;
-    --navGrey: #a7a7a7;
+    --navHover: #ffffff;
+    --navGrey: #c0c0c0;
+    --footerHover: #a5a5a5;
+    --footerGrey: #292C33;
 }
+
+/* ----Navbar----------------------------------------- */
 
 .navbar {
     display: flex;
     vertical-align: bottom;
-    font-family: "Quicksand";
+    font-family: "Source Sans Pro";
     font-weight: bold;
     background-color: var(--blue);
     padding: 1%;
     margin: 0 0 1% 0;
 }
 
-.navbar a:link {
-    text-decoration: none;
-}
-
-.navbar a:visited {
-    text-decoration: none;
-}
-
-.navbar a:active {
+.navbar a:link, a:visited, a:active {
     text-decoration: none;
 }
 
 .navbar a:hover {
     text-decoration: solid;
-    color: var(--navGrey);
+    color: var(--navHover);
     transition: color 0.3s;
 }
 
@@ -41,17 +39,17 @@
 }
 
 .navText {
+    color: var(--navGrey);
+    margin: auto 1.35%;
+}
+
+.navHeader {
     color: white;
     margin: auto 1.35%;
 }
 
-.question {
-    margin: 0 0 1% 0;
-}
 
-.mainDiv {
-    margin: 0 15%;
-}
+/* ----Button----------------------------------------- */
 
 .button {
     background-color: var(--blue);
@@ -63,24 +61,97 @@
     cursor: pointer;
 }
 
-.btnico {
-    background: url('./assets/play.svg') no-repeat no-repeat;
-    width: 20px;
-    height: 20px;
-    border: 0px;
-}
-
-input[type=text] {
-    border-style: solid;
-    border-radius: 3px;
-}
-
 .button:hover {
     text-decoration: solid;
     background-color: var(--darkerBlue);
     transition: background-color 0.3s;
 }
 
-.text {
-    font-family: "Open Sans";
+/* ----Quiz------------------------------------------- */
+
+input[type=text] {
+    border-style: solid;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+}
+
+input[type=text]:focus {
+    border-color: var(--blue);
+    outline: none;
+    box-shadow: 0 0 6px var(--blue);
+}
+
+input[type=radio]:checked {
+    accent-color: var(--blue);
+}
+input[type=checkbox]:checked {
+    accent-color: var(--blue);
+}
+
+.quiz h2 {
+    font-family: "Source Sans Pro";
+}
+
+.question {
+    margin: 0 0 2% 0;
+}
+
+/* ----Footer----------------------------------------- */
+
+.footer {
+    display: block;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-weight: bold;
+    background-color: var(--footerGrey);
+    padding: 1%;
+    margin: 1% 0 0 0;
+}
+
+.footerText {
+    color: white;
+    margin: auto 1.35%;
+}
+
+.footerText p{
+    margin: 0.5% 1% 0.8% 1%;
+}
+
+
+.footerIcon {
+    display: flex;
+    vertical-align: bottom;
+    justify-content: center;
+    color: white;
+    margin: auto;
+    /* padding-bottom: 0.5%; */
+    padding-top: 0.8%;
+}
+
+.footer a:link, a:visited, a:active  {
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: solid;
+    color: var(--footerHover);
+    transition: color 0.3s;
+}
+
+.footer h2 {
+    padding: 0;
+    margin: 0;
+}
+
+/* --------------------------------------------------- */
+
+.mainDiv {
+    margin: 0 15%;
+    font-family: "Noto Sans";
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    margin: auto 2% auto 0.8%;
 }
