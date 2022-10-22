@@ -15,8 +15,12 @@ TODO: QUESTIONS ANSWER INDICATOR
     --footerHover: #a5a5a5;
     --footerGrey: #292C33;
 
+    --noAnswer: rgba(161, 161, 161, 0.2);
+    --wrongAnswer: #dc3545;
     --wrongAnswerBackground: rgba(220, 53, 69, 0.2);
+    --rightAnswer: #198754;
     --rightAnswerBackground: rgba(25, 135, 84, 0.2);
+    --enough: #ffc107;
     --enoughAnswerBackground: rgba(255, 193, 7,0.2);
 
 }
@@ -51,7 +55,6 @@ header {
 
 .navbar h2 {
     padding: 0;
-    margin: 0;
 }
 
 .navText {
@@ -61,7 +64,7 @@ header {
 
 .navHeader {
     color: white;
-    margin: auto 1.35%;
+    margin: auto 2% auto 0;
 }
 
 
@@ -113,6 +116,7 @@ input[type=checkbox]:checked {
     margin: 0 0 1.5rem 0;
     padding: 1%;
     border-radius: 3px;
+    border-left-style: solid;
 }
 
 .resultDiv {
@@ -120,17 +124,26 @@ input[type=checkbox]:checked {
     padding: 0.2%;
     border-radius: 3px;
     text-align: center;
+    border-left-style: solid;
+}
+
+.start {
+    border-color: var(--footerHover);
+    background-color: var(--noAnswer);
 }
 
 .right {
+    border-color: var(--rightAnswer);
     background-color: var(--rightAnswerBackground);
 }
 
 .wrong {
+    border-color: var(--wrongAnswer);
     background-color: var(--wrongAnswerBackground);
 }
 
 .enough {
+    border-color: var(--enough);
     background-color: var(--enoughAnswerBackground);
 }
 
