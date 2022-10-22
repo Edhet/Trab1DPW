@@ -31,6 +31,7 @@ function submitClicked() {
 
     const divQ1 = document.getElementById("q1"); //Radio1
     const divQ2 = document.getElementById("q2"); //Text1
+    const divQ3 = document.getElementById("q3"); //Radio2
     const divQ4 = document.getElementById("q4"); //Check1
     const divQ5 = document.getElementById("q5"); //Text2
     const divQ6 = document.getElementById("q6"); //Text3
