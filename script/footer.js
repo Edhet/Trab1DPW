@@ -5,7 +5,7 @@ document.write(`
         <p>Feito por Eduardo P. 2022</p>
         <div class="footerIcon">
             <img src="./assets/hockey.svg" class="icon">
-            <h2 class="footerText"> Hockey</h2>
+            <h2 class="footerText">Hóquei</h2>
         </div>
         <div class="footerIcon">
             <a href="http://www.unirio.br/" target="unirio" class="footerText">Unirio</a>
