@@ -1,19 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 @import url(https://fonts.googleapis.com/css?family=Noto+Serif);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Black);
+
 
 /*
-TODO: ACTIVE PAGE HIGHLIGHT
-TODO: QUESTIONS ANSWER INDICATOR
+TODO: NOTHING FOR NOW...
 */
 
 :root {
     --blue: #0d6efd;
     --darkerBlue: #1057c2;
     --navHover: #ffffff;
-    --navGrey: #c0c0c0;
+    --navGrey: #d3d3d3;
     --footerHover: #a5a5a5;
-    --footerGrey: #292C33;
+    --footerGrey: #181818;
 
     --noAnswer: rgba(161, 161, 161, 0.2);
     --wrongAnswer: #dc3545;
@@ -35,9 +36,9 @@ header {
 
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     vertical-align: bottom;
-    font-family: "Source Sans Pro";
-    font-weight: bold;
+    font-family: "Archivo Black";
     background-color: var(--blue);
     padding: 1rem;
     margin: 0 0 1% 0;
@@ -48,6 +49,7 @@ header {
 }
 
 .navbar a:hover {
+    cursor: pointer;
     text-decoration: solid;
     color: var(--navHover);
     transition: color 0.3s;
@@ -59,7 +61,7 @@ header {
 
 .navText {
     color: var(--navGrey);
-    margin: auto 1.35%;
+    margin: auto 1.5%;
 }
 
 .navHeader {
@@ -67,6 +69,10 @@ header {
     margin: auto 2% auto 0;
 }
 
+.navLinks {
+    display: flex;
+    flex-wrap: nowrap;
+}
 
 /* ----Button----------------------------------------- */
 
@@ -81,6 +87,7 @@ header {
 }
 
 .button:hover {
+    cursor: pointer;
     text-decoration: solid;
     background-color: var(--darkerBlue);
     transition: background-color 0.3s;
@@ -109,7 +116,7 @@ input[type=checkbox]:checked {
 }
 
 .quiz h2 {
-    font-family: "Source Sans Pro";
+    font-family: "Archivo Black";
 }
 
 .question {
@@ -152,11 +159,10 @@ input[type=checkbox]:checked {
 .footer {
     display: block;
     text-align: center;
-    font-family: "Source Sans Pro";
-    font-weight: bold;
+    font-family: "Archivo Black";
     background-color: var(--footerGrey);
     padding: 1%;
-    margin: 1% 0 0 0;
+    margin-top: auto;
 }
 
 .footerText {
@@ -165,17 +171,15 @@ input[type=checkbox]:checked {
 }
 
 .footerText p{
+    font-family: "Source Sans Pro";
     margin: 0.5% 1% 0.8% 1%;
 }
 
-
 .footerIcon {
     display: flex;
-    vertical-align: bottom;
     justify-content: center;
     color: white;
     margin: auto;
-    /* padding-bottom: 0.5%; */
     padding-top: 0.8%;
 }
 
@@ -184,6 +188,7 @@ input[type=checkbox]:checked {
 }
 
 .footer a:hover {
+    cursor: pointer;
     text-decoration: solid;
     color: var(--footerHover);
     transition: color 0.3s;
@@ -194,16 +199,53 @@ input[type=checkbox]:checked {
     margin: 0;
 }
 
-/* --------------------------------------------------- */
+/* ----Side Nav--------------------------------------- */
+
+.sideNav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 18%;
+    left: 3%;
+    width: 10%;
+    background-color: var(--footerGrey);
+    border-radius: 3px;
+    padding: 0.5%;
+    font-family: "Archivo Black";
+}
+
+.sideNav a {
+    color: white;
+}
+
+.sideNav a:link, a:visited, a:active {
+    text-decoration: none;
+}
+
+/* ----General---------------------------------------- */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
 .mainDiv {
+    display: block;
     margin: 0 15%;
-    margin-top: 5rem;
+    padding-top: 4.1rem;
+    margin-bottom: 2rem;
     font-family: "Noto Sans";
 }
 
 .headerText {
-    font-family: "Source Sans Pro";
+    font-family: "Archivo Black";
+}
+
+.articleText {
+    display: flex;
+    flex-wrap: wrap; 
+    text-align: justify;
 }
 
 .icon {
@@ -211,3 +253,62 @@ input[type=checkbox]:checked {
     height: 2rem;
     margin: auto 2% auto 0.8%;
 }
+
+.wideImage {
+    display: inline;
+    overflow: visible;
+    margin-top: 4rem;
+    width: 100%;
+    height: 30%;
+    border-bottom-style: solid;
+    border-width: 0px;
+    box-shadow: 0 0 10px var(--footerGrey);
+}
+
+.onPage {
+    color: var(--navHover);
+}
+
+.linkButton {
+    font-family: "Archivo Black";
+    color: black;
+}
+
+.linkButton:link, .linkButton:visited, .linkButton:active {
+    text-decoration: none;
+}
+
+.linkButton:hover {
+    cursor: pointer;
+    text-decoration: solid;
+    color: var(--footerHover);
+    transition: color 0.3s;
+}
+
+/* ----Phone----------------------------------------- */
+
+@media (max-width:450px) {
+    .mainDiv {
+        margin: 0 5%;
+        margin-bottom: 1.5rem;
+    }
+    .navbar {
+        justify-content: center;
+        margin: 0%;
+    }
+    .navLinks {
+        width: 100%;
+        margin-top: 3%;
+        justify-content: center;
+    }
+    .navText {
+        flex-direction: column;
+    }
+    .mainDiv {
+        padding-top: 5.5rem;
+    }
+    .wideImage {
+        margin-top: 5.7rem;
+    }
+}
+

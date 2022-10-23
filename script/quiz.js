@@ -29,6 +29,12 @@ function submitClicked() {
     let percent;
     readInput();
 
+    // To remove validator warning, create h2 to display result.
+    const answerDisplay = document.createElement("h2");
+    answerDisplay.className = "quiz headerText";
+    answerDisplay.id = "result";
+    document.getElementById("resultDiv").appendChild(answerDisplay);
+
     const divQ1 = document.getElementById("q1"); //Radio1
     const divQ2 = document.getElementById("q2"); //Text1
     const divQ3 = document.getElementById("q3"); //Radio2

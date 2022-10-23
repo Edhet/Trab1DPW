@@ -6,66 +6,67 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="normalize.css">
     <link rel="icon" href="./assets/hockey.svg">
-    <title>Hockey - Quiz</title>
+    <title>Hóquei - Quiz</title>
   </head>
   <body>
     <script src="./script/navbar.js" id="navScript"></script>
     <main class="mainDiv">
-      <h1 class="headerText">Quiz de Hóquei</h1>
-      <div class="question start" id="q1">
-        <label>O disco "puck" utilizado no hoquei é feito de qual material?</label> <br>
-        <input type="radio" name="radio1" value="1" checked> Mármore carrara <br>
-        <input type="radio" name="radio1" value="2"> Borracha vulcanizada <br>
-        <input type="radio" name="radio1" value="3"> Resina <br>
-        <input type="radio" name="radio1" value="4"> Cimento <br>
-      </div>
-      <div class="question start" id="q2">
-        <label>Qual o país responsável por originar o hóquei de gelo?</label> <br>
-        <input type="text" id="text1">
-      </div>
-      <div class="question start" id="q3">
-        <label>No hóquei de gelo, os jogadores disputam com um disco que pode alcançar até grandes velocidades, nesse contexto, eles necessitam utilizar:</label> <br>
-        <input type="radio" name="radio2" value="1" checked> Nenhuma proteção <br> 
-        <input type="radio" name="radio2" value="2"> Um capacete apenas <br>
-        <input type="radio" name="radio2" value="3"> Blusas de lã e botas <br>
-        <input type="radio" name="radio2" value="4"> Luvas, capacete e equipamentos apropriados <br>
-      </div>
-      <div class="question start" id="q4">
-        <label>Uma partida de hóquei tem 12 jogadores, sendo 6 de cada time.</label> <br>
-        <input type="checkbox" id="check1"> Verdadeira
-      </div>
-      <div class="question start" id="q5">
-        <label>Quanto tempo dura em média uma partida de hóquei em minutos?</label> <br>
-        <input type="text" id="text2">
-      </div>
-      <div class="question start" id="q6">
-        <label>O puck utilizado nas partidas de hóquei é geralmente:</label> <br>
-        <input type="text" id="text3">
-      </div>
-      <div class="question start" id="q7">
-        <label>Em geral, o hóquei é um esporte caracterizado pela agilidade e velocidade, seguindo esse fato, os discos puck geralmente atingem:</label> <br>
-        <input type="radio" name="radio3" value="1" checked> Entre 50 e 60km/h <br>
-        <input type="radio" name="radio3" value="2"> Menos de 100km/h <br>
-        <input type="radio" name="radio3" value="3"> Mais de 150 km/h <br>
-        <input type="radio" name="radio3" value="4" > 15 km/h <br>
-      </div>
-      <div class="question start" id="q8">
-        <label>Qual o maior campeonato de hóquei no gelo atualmente?</label> <br>
-        <input type="text" id="text4">
-      </div>
-      <div class="question start" id="q9">
-        <label>De qual material eram feitos os primeiros discos de hoquei?</label> <br>
-        <input type="text" id="text5" class="glowing-border">
-      </div>
-      <div class="question start" id="q10">
-        <label>Em caso de acidente com o goleiro oficial, um membro da platéia pode substituir lo e jogar com o time em um campeonato, essa afirmação é:</label> <br>
-        <input type="checkbox" id="check2" class="coloredInput"> Verdadeira
-      
-      </div>
-      <button onclick="submitClicked()" class="button">Enviar</button>
-      <div id="resultDiv" class="">
-        <h2 id="result" class="quiz headerText"> </h2>
-      </div>
+      <section>
+        <h1 class="headerText">Quiz de Hóquei</h1>
+        <div class="question start" id="q1">
+          <label>O disco "puck" utilizado no hoquei é feito de qual material?</label> <br>
+          <input type="radio" name="radio1" value="1" checked> Mármore carrara <br>
+          <input type="radio" name="radio1" value="2"> Borracha vulcanizada <br>
+          <input type="radio" name="radio1" value="3"> Resina <br>
+          <input type="radio" name="radio1" value="4"> Cimento <br>
+        </div>
+        <div class="question start" id="q2">
+          <label>Qual o país responsável por originar o hóquei de gelo?</label> <br>
+          <input type="text" id="text1">
+        </div>
+        <div class="question start" id="q3">
+          <label>No hóquei de gelo, os jogadores disputam com um disco que pode alcançar até grandes velocidades, nesse contexto, eles necessitam utilizar:</label> <br>
+          <input type="radio" name="radio2" value="1" checked> Nenhuma proteção <br> 
+          <input type="radio" name="radio2" value="2"> Um capacete apenas <br>
+          <input type="radio" name="radio2" value="3"> Blusas de lã e botas <br>
+          <input type="radio" name="radio2" value="4"> Luvas, capacete e equipamentos apropriados <br>
+        </div>
+        <div class="question start" id="q4">
+          <label>Uma partida de hóquei tem 12 jogadores, sendo 6 de cada time.</label> <br>
+          <input type="checkbox" id="check1"> Verdadeira
+        </div>
+        <div class="question start" id="q5">
+          <label>Quanto tempo dura em média uma partida de hóquei em minutos?</label> <br>
+          <input type="text" id="text2">
+        </div>
+        <div class="question start" id="q6">
+          <label>O puck utilizado nas partidas de hóquei é geralmente:</label> <br>
+          <input type="text" id="text3">
+        </div>
+        <div class="question start" id="q7">
+          <label>Em geral, o hóquei é um esporte caracterizado pela agilidade e velocidade, seguindo esse fato, os discos puck geralmente atingem:</label> <br>
+          <input type="radio" name="radio3" value="1" checked> Entre 50 e 60km/h <br>
+          <input type="radio" name="radio3" value="2"> Menos de 100km/h <br>
+          <input type="radio" name="radio3" value="3"> Mais de 150 km/h <br>
+          <input type="radio" name="radio3" value="4" > 15 km/h <br>
+        </div>
+        <div class="question start" id="q8">
+          <label>Qual o maior campeonato de hóquei no gelo atualmente?</label> <br>
+          <input type="text" id="text4">
+        </div>
+        <div class="question start" id="q9">
+          <label>De qual material eram feitos os primeiros discos de hoquei?</label> <br>
+          <input type="text" id="text5" class="glowing-border">
+        </div>
+        <div class="question start" id="q10">
+          <label>Em caso de acidente com o goleiro oficial, um membro da platéia pode substituir lo e jogar com o time em um campeonato, essa afirmação é:</label> <br>
+          <input type="checkbox" id="check2" class="coloredInput"> Verdadeira
+        
+        </div>
+        <button onclick="submitClicked()" class="button">Enviar</button>
+        <div id="resultDiv" >
+        </div>
+      </section>
     </main>
     <script src="./script/footer.js" id="footerScript"></script>
     <script src="./script/quiz.js"></script>

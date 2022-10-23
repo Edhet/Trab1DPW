@@ -8,8 +8,9 @@ document.write(`
             <h2 class="footerText">Hóquei</h2>
         </div>
         <div class="footerIcon">
-            <a href="http://www.unirio.br/" target="unirio" class="footerText">Unirio</a>
-            <a href="https://bsi.uniriotec.br/" target="unirio" class="footerText">BSI-Unirio</a>
+            <a href="http://www.unirio.br/" target="second" class="footerText">Unirio</a>
+            <a href="https://bsi.uniriotec.br/" target="second" class="footerText">BSI-Unirio</a>
+            <a href="" target="second" class="footerText">Repo</a>
         </div>
     </div>
 </footer>
