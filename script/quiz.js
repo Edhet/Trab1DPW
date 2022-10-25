@@ -24,16 +24,16 @@ let input = {
     textFive: null,
 };
 
+// To remove validator warning, create h2 to display result.
+const answerDisplay = document.createElement("h2");
+answerDisplay.className = "quiz headerText";
+answerDisplay.id = "result";
+document.getElementById("resultDiv").appendChild(answerDisplay);
+
 function submitClicked() {
     let counter = 0;
     let percent;
     readInput();
-
-    // To remove validator warning, create h2 to display result.
-    const answerDisplay = document.createElement("h2");
-    answerDisplay.className = "quiz headerText";
-    answerDisplay.id = "result";
-    document.getElementById("resultDiv").appendChild(answerDisplay);
 
     const divQ1 = document.getElementById("q1"); //Radio1
     const divQ2 = document.getElementById("q2"); //Text1
@@ -71,11 +71,14 @@ function submitClicked() {
     if (input.textFive == answers.textFive) {counter++; divQ9.className = "question right";}
     else {divQ9.className = "question wrong";}
 
+    const sahappy = (counter == 0) ? "<img src='./assets/sahappy.svg' alt='sahappy' class='icon' style='width: 100%; height: 4rem; margin-top: 0.2rem;'>" : "";
+
     percent = (100 * counter) / 10;
-    document.getElementById("result").innerHTML = `Acertou: ${counter}/10 | ${percent}%`;
+    document.getElementById("result").innerHTML = `Acertou: ${counter}/10 | ${percent}%${sahappy}`;
     if (counter >= 7) {
         resultDiv.className = "resultDiv right";
     }
+
     else if (counter <= 4) {
         resultDiv.className = "resultDiv wrong";
     }

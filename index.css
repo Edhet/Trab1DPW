@@ -1,11 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
-@import url(https://fonts.googleapis.com/css?family=Noto+Serif);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url(https://fonts.googleapis.com/css?family=Archivo+Black);
 
 
 /*
-TODO: NOTHING FOR NOW...
+TODO: Correct index highlight
 */
 
 :root {
@@ -111,6 +110,7 @@ input[type=text]:focus {
 input[type=radio]:checked {
     accent-color: var(--blue);
 }
+
 input[type=checkbox]:checked {
     accent-color: var(--blue);
 }
@@ -204,22 +204,22 @@ input[type=checkbox]:checked {
 .sideNav {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 18%;
-    left: 3%;
-    width: 10%;
-    background-color: var(--footerGrey);
+    width: 20%;
     border-radius: 3px;
-    padding: 0.5%;
+    padding: auto;
+    margin-top: 2rem;
     font-family: "Archivo Black";
 }
 
 .sideNav a {
-    color: white;
+    color: black;
+    margin: 0.2rem;
 }
 
-.sideNav a:link, a:visited, a:active {
-    text-decoration: none;
+.sideNav h2 {
+    margin: 1% 1%;
+    font-weight: lighter;
+
 }
 
 /* ----General---------------------------------------- */
@@ -240,6 +240,7 @@ body {
 
 .headerText {
     font-family: "Archivo Black";
+    font-weight: lighter;
 }
 
 .articleText {
@@ -255,14 +256,14 @@ body {
 }
 
 .wideImage {
-    display: inline;
-    overflow: visible;
     margin-top: 4rem;
-    width: 100%;
-    height: 30%;
-    border-bottom-style: solid;
-    border-width: 0px;
     box-shadow: 0 0 10px var(--footerGrey);
+}
+
+.bodyImage {
+    border-radius: 8px;
+    margin: 1% 0 1% 25%;
+    width: 50%;
 }
 
 .onPage {
@@ -270,22 +271,43 @@ body {
 }
 
 .linkButton {
-    font-family: "Archivo Black";
+    font-family: "Noto Sans";
     color: black;
 }
 
 .linkButton:link, .linkButton:visited, .linkButton:active {
-    text-decoration: none;
+    text-decoration-color: var(--blue);
+    text-decoration-thickness: 2px;
 }
 
 .linkButton:hover {
     cursor: pointer;
     text-decoration: solid;
-    color: var(--footerHover);
-    transition: color 0.3s;
+    background-color: var(--blue);
+    transition: background-color 0.3s;
+}
+
+.table {
+    margin-top: 2%;
+    border-collapse: collapse;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+}
+
+.table tr {
+    border-bottom-style: solid;
+    border-width: 1px;
 }
 
 /* ----Phone----------------------------------------- */
+
+@media (max-width:800px) {
+    .bodyImage {
+        margin: 10%;
+        width: 1000%;
+    }
+}
 
 @media (max-width:450px) {
     .mainDiv {
@@ -310,5 +332,11 @@ body {
     .wideImage {
         margin-top: 5.7rem;
     }
+    .sideNav {
+        width: 100%;
+    }
+    .bodyImage {
+        margin: 0;
+        width: 100%;
+    }
 }
-
