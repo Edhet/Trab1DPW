@@ -262,7 +262,7 @@ body {
 
 .bodyImage {
     border-radius: 8px;
-    margin: 1% 0 1% 25%;
+    margin: 2.5% 0 2.5% 25%;
     width: 50%;
     box-shadow: 0 0 3px var(--footerGrey);
 }
@@ -274,6 +274,7 @@ body {
 .linkButton {
     font-family: "Noto Sans";
     border: none;
+    background-color: rgba(0, 0, 0, 0);
     color: black;
     
     margin-top: 0.2rem;
@@ -311,8 +312,11 @@ body {
 
 @media (max-width:800px) {
     .bodyImage {
-        margin: 10%;
-        width: 1000%;
+        margin-left: 0;
+        width: 100%;
+    }
+    .sideNav {
+        width: 30%;
     }
 }
 
@@ -343,7 +347,7 @@ body {
         width: 100%;
     }
     .bodyImage {
-        margin: 0;
+        margin-left: 0;
         width: 100%;
     }
 }
