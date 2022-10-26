@@ -18,13 +18,13 @@
         <aside class="sideNav question start">
           <h2>Índice</h2>
           <div>
-            <a href="#comeco" class="linkButton">Começo</a>
+            <button class="linkButton" onclick="smoothScroll('comeco')">Começo</button>
           </div>
           <div>
-            <a href="#origens" class="linkButton">Origens</a>
+            <button class="linkButton" onclick="smoothScroll('origens')">Origens</button>
           </div>
           <div>
-            <a href="#olimpiadas" class="linkButton">Olimpíadas</a>
+            <button class="linkButton" onclick="smoothScroll('olimpiadas')">Olimpíadas</button>
           </div>
         </aside>
         <article class="articleText">
@@ -40,11 +40,12 @@
         </article>
         <article class="articleText">
           <h2 class="headerText" id="olimpiadas">Hóquei nas Olimpíadas</h2>
-          <img src="./assets/Olimpiadas.JPG" alt="abertura olimpiadas inverno 2022" class="bodyImage">
             O hóquei no gelo começou a ser disputado nos Jogos Olímpicos na edição de Verão de 1920, em Antuérpia. Com a criação dos Jogos Olímpicos de Inverno, deixou de ser disputado em edições de verão, sendo disputado até hoje junto com as outras modalidades olímpicas de inverno. 
+          <img src="./assets/Olimpiadas.JPG" alt="abertura olimpiadas inverno 2022" class="bodyImage">
         </article>
       </section>
     </main>
+    <script src="./script/scroll.js"></script>
     <script src="./script/footer.js" id="footerScript"></script>
   </body>
 </html>

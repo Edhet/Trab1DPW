@@ -10,7 +10,7 @@ document.write(`
         <div class="footerIcon">
             <a href="http://www.unirio.br/" target="second" class="footerText">Unirio</a>
             <a href="https://bsi.uniriotec.br/" target="second" class="footerText">BSI-Unirio</a>
-            <a href="" target="second" class="footerText">Repo</a>
+            <a href="https://www.gov.br/mec/pt-br" target="second" class="footerText">Mec</a>
         </div>
     </div>
 </footer>
