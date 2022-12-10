@@ -220,6 +220,32 @@ input[type=checkbox]:checked {
 
 }
 
+/* ----Carrousel-------------------------------------- */
+
+.carrouselBox {
+    display: flex;
+    width: fit-content;
+    margin: 2% auto;
+}
+
+.carrouselBox img {
+    border-radius: 8px;
+    box-shadow: 0 0 3px var(--footerGrey);
+    width: 100%;
+}
+
+.chevronButton {
+    background: rgba(0, 0, 0, 0%);
+    border: none;
+    position: relative;
+}
+
+.chevronButton:hover {
+    color: var(--blue);
+    border: none;
+    transition: color 0.2s;
+}
+
 /* ----General---------------------------------------- */
 
 body {
@@ -230,9 +256,8 @@ body {
 
 .mainDiv {
     display: block;
-    margin: 0 15%;
     padding-top: 4.1rem;
-    margin-bottom: 2rem;
+    margin: 0 15% 2rem;
     font-family: "Noto Sans";
 }
 
@@ -330,8 +355,7 @@ body {
 
 @media (max-width:483px) {
     .mainDiv {
-        margin: 0 5%;
-        margin-bottom: 1.5rem;
+        margin: 0 5% 1.5rem;
     }
     .navbar {
         justify-content: center;
