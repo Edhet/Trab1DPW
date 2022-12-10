@@ -32,7 +32,6 @@ header {
 .navbar {
     display: flex;
     flex-wrap: wrap;
-    vertical-align: bottom;
     font-family: "Archivo Black";
     background-color: var(--blue);
     padding: 1rem;
@@ -56,7 +55,7 @@ header {
 
 .navText {
     color: var(--navGrey);
-    margin: auto 1.5%;
+    margin: auto 0.3rem;
 }
 
 .navHeader {
@@ -67,6 +66,10 @@ header {
 .navLinks {
     display: flex;
     flex-wrap: nowrap;
+}
+
+#navLogo {
+    margin-left: 15%;
 }
 
 /* ----Button----------------------------------------- */
@@ -202,7 +205,6 @@ input[type=checkbox]:checked {
     flex-direction: column;
     width: 20%;
     border-radius: 3px;
-    padding: auto;
     margin-top: 2rem;
     font-family: "Archivo Black";
 }
@@ -252,7 +254,7 @@ body {
 .icon {
     width: 2rem;
     height: 2rem;
-    margin: auto 2% auto 0.8%;
+    margin: auto 0.4rem auto 0.2rem;
 }
 
 .wideImage {
@@ -320,7 +322,13 @@ body {
     }
 }
 
-@media (max-width:470px) {
+@media (max-width:565px) {
+    #navLogo {
+        margin-left: 0;
+    }
+}
+
+@media (max-width:483px) {
     .mainDiv {
         margin: 0 5%;
         margin-bottom: 1.5rem;
@@ -333,6 +341,7 @@ body {
         width: 100%;
         margin-top: 3%;
         justify-content: center;
+        flex-wrap: wrap;
     }
     .navText {
         flex-direction: column;
@@ -344,10 +353,11 @@ body {
         margin-top: 5.7rem;
     }
     .sideNav {
-        width: 100%;
+        width: 97%;
     }
     .bodyImage {
         margin-left: 0;
         width: 100%;
     }
+
 }

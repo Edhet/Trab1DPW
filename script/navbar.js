@@ -19,7 +19,7 @@ switch (pageName) {
 document.write(`
 <header>
     <nav class="navbar">
-        <img src="./assets/hockey.svg" class="icon">
+        <img src="./assets/hockey.svg" class="icon" id="navLogo">
         <h2 class="navHeader">Hóquei</h2>
         <div class="navLinks">
             <a href="index.html" class="navText${OnStart}">Início</a>
