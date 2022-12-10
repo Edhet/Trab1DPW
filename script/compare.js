@@ -1,14 +1,16 @@
 document.write(`
-    <div id="checkDiv" class="question start">
+    <section id="checkDiv" class="question start">
         <p>Insira uma data, e veja quanto tempo há desde a primeira partida de hóquei no gelo.</p>
         <button id="checkBtn">Comparar</button>
-    </div>
+    </section>
 `);
 
 const checkBtn = document.getElementById('checkBtn');
 const checkBox = document.getElementById('checkDiv');
 let input = document.createElement('input');
 input.setAttribute('type', 'date');
+input.setAttribute('min', '1875-03-03');
+
 
 checkBtn.setAttribute('class', 'button');
 
@@ -21,7 +23,7 @@ checkBtn.addEventListener('click',
     () => {
         const eventDate = new Date('1875-03-03');
         const inputDate = new Date(input.value);
-        if (input.value == '' || input.value == NaN || input.value == null) {
+        if (input.value == '') {
             result.textContent = "Insira uma data válida."
             return
         }

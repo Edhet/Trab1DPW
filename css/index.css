@@ -110,6 +110,10 @@ input[type=radio]:checked {
     accent-color: var(--blue);
 }
 
+input[type=radio]:checked {
+    accent-color: var(--blue);
+}
+
 input[type=checkbox]:checked {
     accent-color: var(--blue);
 }
