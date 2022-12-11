@@ -1,5 +1,5 @@
 document.write(`
-    <section id="checkDiv" class="question start">
+    <section id="checkDiv" class="question enough" style="margin: 0.8rem 0">
         <p>Insira uma data, e veja quanto tempo há desde a primeira partida de hóquei no gelo.</p>
         <button id="checkBtn">Comparar</button>
     </section>
