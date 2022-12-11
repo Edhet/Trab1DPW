@@ -1,103 +1,193 @@
-const answers = {
-    radioOne: 2,
-    radioTwo: 4,
-    radioThree: 3,
-    checkboxOne: true,
-    checkboxTwo: true,
-    textOne: "CANADÁ",
-    textTwo: "60",
-    textThree: "CONGELADO",
-    textFour: "NHL",
-    textFive: "ESTERCO DE VACA",
-};
+if (localStorage.alreadyOpenedOnce == null) {
+    const qList = [
+        {type: "radio", text: "O disco \"puck\" utilizado no hoquei é feito de qual material?", options: ["Mármore carrara", "Borracha vulcanizada", "Resina", "Cimento"], answer: 1, finished: false},
+        {type: "radio", text: "No hóquei de gelo, os jogadores disputam com um disco que pode alcançar até grandes velocidades, nesse contexto, eles necessitam utilizar:", options: ["Nenhuma proteção", "Um capacete apenas", "Blusas de lã e botas", "Luvas, capacete e equipamentos apropriados"], answer: 3, finished: false},
+        {type: "radio", text: "Em geral, o hóquei é um esporte caracterizado pela agilidade e velocidade, seguindo esse fato, os discos puck geralmente atingem:", options: ["Entre 50 e 60km/h", "Menos de 100km/h", "Mais de 150 km/h", "15 km/h"], answer: 2, finished: false},
 
-let input = {
-    radioOne: 1,
-    radioTwo: 1,
-    radioThree: 1,
-    checkboxOne: null,
-    checkboxTwo: null,
-    textOne: null,
-    textTwo: null,
-    textThree: null,
-    textFour: null,
-    textFive: null,
-};
+        {type: "text", text: "Qual o país responsável por originar o hóquei de gelo?" , answer: "CANADÁ", finished: false},
+        {type: "text", text: "Quanto tempo dura em média uma partida de hóquei em minutos?" , answer: "60", finished: false},
+        {type: "text", text: "O puck utilizado nas partidas de hóquei é geralmente:" , answer: "CONGELADO", finished: false},
+        {type: "text", text: "Qual o maior campeonato de hóquei no gelo atualmente?" , answer: "NHL", finished: false},
+        {type: "text", text: "De qual material eram feitos os primeiros discos de hoquei?" , answer: "ESTERCO DE VACA", finished: false},
 
-// To remove validator warning, create h2 to display result.
-const answerDisplay = document.createElement("h2");
-answerDisplay.className = "quiz headerText";
-answerDisplay.id = "result";
-document.getElementById("resultDiv").appendChild(answerDisplay);
+        {type: "checkbox", text: "Uma partida de hóquei tem 12 jogadores, sendo 6 de cada time." , answer: true, finished: false},
+        {type: "checkbox", text: "Em caso de acidente com o goleiro oficial, um membro da platéia pode substitui-lo e jogar com o time em um campeonato, essa afirmação é:" , answer: true, finished: false},
+    ];
+    localStorage.setItem('questions', JSON.stringify(qList));
+    localStorage.alreadyOpenedOnce = 1;
+}
 
-function submitClicked() {
-    let counter = 0;
-    let percent;
-    readInput();
+const HOW_MANY_QUESTIONS = 10;
 
-    const divQ1 = document.getElementById("q1"); //Radio1
-    const divQ2 = document.getElementById("q2"); //Text1
-    const divQ3 = document.getElementById("q3"); //Radio2
-    const divQ4 = document.getElementById("q4"); //Check1
-    const divQ5 = document.getElementById("q5"); //Text2
-    const divQ6 = document.getElementById("q6"); //Text3
-    const divQ7 = document.getElementById("q7"); //Radio7
-    const divQ8 = document.getElementById("q8"); //Text4
-    const divQ9 = document.getElementById("q9"); //Text5
-    const divQ10 = document.getElementById("q10"); //Check2
+let questions = JSON.parse(localStorage.questions);
 
-    const resultDiv = document.getElementById("resultDiv");
-    
-    if (input.radioOne == answers.radioOne) {counter++; divQ1.className = "question right";}
-    else {divQ1.className = "question wrong";}
-    if (input.radioTwo == answers.radioTwo) {counter++; divQ3.className = "question right";}
-    else {divQ3.className = "question wrong";}
-    if (input.radioThree == answers.radioThree) {counter++; divQ7.className = "question right";}
-    else {divQ7.className = "question wrong";}
+const submitBtn = document.createElement("button");
+submitBtn.textContent = "Enviar";
+submitBtn.setAttribute('class', 'button');
+document.querySelector('main').appendChild(submitBtn);
 
-    if (input.checkboxOne == answers.checkboxOne) {counter++; divQ4.className = "question right";}
-    else {divQ4.className = "question wrong";}
-    if (input.checkboxTwo == answers.checkboxTwo) {counter++; divQ10.className = "question right";}
-    else {divQ10.className = "question wrong";}
-    
-    if (input.textOne == answers.textOne) {counter++; divQ2.className = "question right";}
-    else {divQ2.className = "question wrong";}
-    if (input.textTwo == answers.textTwo) {counter++; divQ5.className = "question right";}
-    else {divQ5.className = "question wrong";}
-    if (input.textThree == answers.textThree) {counter++; divQ6.className = "question right";}
-    else {divQ6.className = "question wrong";}
-    if (input.textFour == answers.textFour) {counter++; divQ8.className = "question right";}
-    else {divQ8.className = "question wrong";}
-    if (input.textFive == answers.textFive) {counter++; divQ9.className = "question right";}
-    else {divQ9.className = "question wrong";}
+const reloadBtn = document.createElement("button");
+reloadBtn.textContent = "Jogar Novamente";
+reloadBtn.setAttribute('class', 'button');
+reloadBtn.style.marginLeft = "auto";
+reloadBtn.style.padding = "0 0.2rem";
 
-    const sahappy = (counter == 0) ? "<img src='./assets/sahappy.svg' alt='sahappy' class='icon' style='width: 100%; height: 4rem; margin-top: 0.2rem;'>" : "";
+let questionDivs = [];
+let pickedQuestions = [];
+let questionTypes = [];
+let inputs = [];
 
-    percent = (100 * counter) / 10;
-    document.getElementById("result").innerHTML = `Acertou: ${counter}/10 | ${percent}%${sahappy}`;
-    if (counter >= 7) {
-        resultDiv.className = "resultDiv right";
+const LIMIT = (unfinishedQuestions() > 5) ? 5 : unfinishedQuestions();
+for (let i = 0; i < LIMIT; i++) {
+
+    let questionDiv = document.createElement('div');
+    questionDiv.setAttribute('class', 'question start');
+    questionDiv.setAttribute('id', 'q'+i);
+    questionDivs.push(questionDiv);
+    document.querySelector('section').appendChild(questionDiv);
+
+    let questionIndex = generateRandom(0, HOW_MANY_QUESTIONS -1);
+    while (questions[questionIndex].finished === true || pickedQuestions.includes(questionIndex))
+        questionIndex = generateRandom(0, HOW_MANY_QUESTIONS -1);
+    pickedQuestions.push(questionIndex);
+
+    let questionText = document.createElement('p');
+    questionText.textContent = questions[questionIndex].text;
+    document.getElementById('q'+i).appendChild(questionText);
+
+    if (questions[questionIndex].type == "checkbox") {
+        questionTypes.push("checkbox");
+        let checkboxInput = document.createElement('input');
+        checkboxInput.setAttribute('type', 'checkbox');
+        document.getElementById('q'+i).appendChild(checkboxInput);
+
+        let checkboxLabel = document.createElement('label');
+        checkboxLabel.textContent = "Verdadeiro";
+        document.getElementById('q'+i).appendChild(checkboxLabel);
+
+        inputs.push(checkboxInput);
     }
+    else if (questions[questionIndex].type == "text") {
+        questionTypes.push("text");
+        let textInput = document.createElement('input');
+        textInput.setAttribute('type', 'text');
 
-    else if (counter <= 4) {
-        resultDiv.className = "resultDiv wrong";
+        document.getElementById('q'+i).appendChild(textInput);
+        inputs.push(textInput);
     }
-    else {
-        resultDiv.className = "resultDiv enough";
+    else if (questions[questionIndex].type == "radio") {
+        questionTypes.push("radio");
+        let radioInputs = [];
+        for (option = 0; option < 4; option++) {
+            let radioInput = document.createElement('input');
+            radioInput.setAttribute('type', 'radio');
+            radioInput.setAttribute('name', 'r'+i);
+            radioInput.setAttribute('value', option);
+
+            if (option != 0) {
+                const br = document.createElement('br');
+                document.getElementById('q'+i).appendChild(br);
+            }
+            else
+                radioInput.setAttribute('checked', '');
+
+            document.getElementById('q'+i).appendChild(radioInput);
+            radioInputs.push(radioInput);
+
+            let radioLabel = document.createElement('label');
+            radioLabel.textContent = questions[questionIndex].options[option];
+
+            document.getElementById('q'+i).appendChild(radioLabel);
+        }
+        inputs.push(radioInputs);
     }
 }
 
-function readInput() {
-    input.checkboxOne = document.getElementById("check1").checked;
-    input.checkboxTwo = document.getElementById("check2").checked;
+let notClicked = true;
+submitBtn.addEventListener('click',
+    () => {
+        if (!notClicked)
+            return
 
-    input.textOne = document.getElementById("text1").value.toUpperCase();
-    input.textTwo = document.getElementById("text2").value.toUpperCase();
-    input.textThree = document.getElementById("text3").value.toUpperCase();
-    input.textFour = document.getElementById("text4").value.toUpperCase();
-    input.textFive = document.getElementById("text5").value.toUpperCase();
+        let rightAnswers = 0;
 
-    input.radioOne = document.querySelector('input[name="radio1"]:checked').value
-    input.radioTwo = document.querySelector('input[name="radio2"]:checked').value
-    input.radioThree = document.querySelector('input[name="radio3"]:checked').value
+        for (checkHead = 0; checkHead < LIMIT; checkHead++) {
+            if (questionTypes[checkHead] == "checkbox") {
+                if (inputs[checkHead].checked == questions[pickedQuestions[checkHead]].answer) {
+                    questions[pickedQuestions[checkHead]].finished = true;
+                    rightAnswers++;
+                    questionDivs[checkHead].className = "question right";
+                }
+                else {
+                    questionDivs[checkHead].className = "question wrong";
+                }
+            }
+            else if (questionTypes[checkHead] == "text") {
+                if (inputs[checkHead].value.toUpperCase() == questions[pickedQuestions[checkHead]].answer) {
+                    questions[pickedQuestions[checkHead]].finished = true;
+                    rightAnswers++;
+                    questionDivs[checkHead].className = "question right";
+                }
+                else {
+                    questionDivs[checkHead].className = "question wrong";
+                }
+            }
+            else if (questionTypes[checkHead] == "radio") {
+                let inputValue;
+                for (let i = 0; i < 4; i++)
+                    if (inputs[checkHead][i].checked)
+                        inputValue = inputs[checkHead][i].value;
+
+                if (inputValue == questions[pickedQuestions[checkHead]].answer) {
+                    questions[pickedQuestions[checkHead]].finished = true;
+                    rightAnswers++;
+                    questionDivs[checkHead].className = "question right";
+                }
+                else {
+                    questionDivs[checkHead].className = "question wrong";
+                }
+            }
+        }
+
+        const percentage = (rightAnswers * 100) / LIMIT
+        let resultDiv = document.createElement('div');
+        resultDiv.setAttribute('id', 'resultDiv');
+        resultDiv.className = (percentage < 50) ? "question wrong" : (percentage < 70) ? "question enough" : "question right";
+        resultDiv.style.marginTop = "1.5rem";
+        resultDiv.style.display = "flex";
+        resultDiv.style.flexWrap = "wrap";
+        document.querySelector('main').appendChild(resultDiv);
+
+        let resultText = document.createElement('h2');
+        resultText.textContent = `Você acertou ${rightAnswers} de ${LIMIT}, ${percentage}%`;
+        resultText.className = "headerText";
+        document.getElementById('resultDiv').appendChild(resultText);
+
+
+        document.getElementById('resultDiv').appendChild(reloadBtn);
+
+        if (unfinishedQuestions() === 0)
+            for (let i = 0; i < HOW_MANY_QUESTIONS; i++)
+                questions[i].finished = false;
+
+        localStorage.setItem('questions', JSON.stringify(questions));
+        notClicked = false;
+    });
+
+reloadBtn.addEventListener('click',
+    () => {
+        window.location.reload();
+    });
+
+
+function unfinishedQuestions() {
+    let incomplete = 0;
+    for (let i = 0; i < HOW_MANY_QUESTIONS; i++)
+        if (questions[i].finished === false)
+            incomplete++;
+    return incomplete;
+}
+
+function generateRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
