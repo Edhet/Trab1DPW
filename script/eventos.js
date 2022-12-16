@@ -28,13 +28,16 @@ addBtn.addEventListener('click',
 
         let newEvent = document.createElement("tr");
         newEvent.setAttribute('id', 'event'+eventNmbr);
+        newEvent.style.padding = "0.4rem";
 
         let nameRow = document.createElement("th");
+        nameRow.style.width = "80%";
         nameRow.textContent = eventName.value;
 
         let dateRow = document.createElement("th");
         dateRow.textContent = eventDate.value;
 
+        let btnRow = document.createElement("th");
         let deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'button');
         deleteBtn.textContent = "Deletar Evento";
@@ -43,10 +46,11 @@ addBtn.addEventListener('click',
                document.getElementById(newEvent.id).remove();
             });
 
+        btnRow.appendChild(deleteBtn);
         document.getElementById('list').appendChild(newEvent);
         document.getElementById(newEvent.id).appendChild(nameRow);
         document.getElementById(newEvent.id).appendChild(dateRow);
-        document.getElementById(newEvent.id).appendChild(deleteBtn);
+        document.getElementById(newEvent.id).appendChild(btnRow);
 
         eventNmbr++;
     });

@@ -5,8 +5,8 @@ const daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 document.write(`
     <div style="margin: auto; max-width: fit-content">
         <p class="headerText" style="text-align: center">Calendário ${date.getMonth()+1}/${date.getFullYear()}</p>
-        <table id="calendario" style="border-style: solid; border-radius: 3px; border-color: #A1A1A133; background-color: #d3d3d3; margin-top: 0.4rem">
-            <tr style="font-weight: bold; border-bottom-style: solid">
+        <table id="calendario" style="border-style: solid; border-radius: 3px; border-color: rgb(161, 161, 161); background-color: #d3d3d3; margin-top: 0.4rem;">
+            <tr style="font-weight: bold; border-bottom: 2px solid rgb(161, 161, 161);">
                 <td style="color: #dc3545; text-align: center">D</td>
                 <td style="text-align: center">S</td>
                 <td style="text-align: center">T</td>
