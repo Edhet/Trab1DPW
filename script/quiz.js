@@ -3,21 +3,31 @@ if (localStorage.alreadyOpenedOnce == null) {
         {type: "radio", text: "O disco \"puck\" utilizado no hoquei é feito de qual material?", options: ["Mármore carrara", "Borracha vulcanizada", "Resina", "Cimento"], answer: 1, finished: false},
         {type: "radio", text: "No hóquei de gelo, os jogadores disputam com um disco que pode alcançar até grandes velocidades, nesse contexto, eles necessitam utilizar:", options: ["Nenhuma proteção", "Um capacete apenas", "Blusas de lã e botas", "Luvas, capacete e equipamentos apropriados"], answer: 3, finished: false},
         {type: "radio", text: "Em geral, o hóquei é um esporte caracterizado pela agilidade e velocidade, seguindo esse fato, os discos puck geralmente atingem:", options: ["Entre 50 e 60km/h", "Menos de 100km/h", "Mais de 150 km/h", "15 km/h"], answer: 2, finished: false},
+        {type: "radio", text: "O país com maior número de jogadores de Hóquei registrados é:", options: ["Canadá", "Estados Unidos", "Suriname ☠", "Alemanha"], answer: 1, finished: false},
+        {type: "radio", text: "Qual o país foi banido das olimpíadas de inverno de hóquei?", options: ["Brasil", "Noruega", "Alemanha", "Estados Unidos"], answer: 2, finished: false},
+        {type: "radio", text: "Qual o país recebeu mais medalhas nas olimpíadas de inverno de hóquei?", options: ["Sérvia", "Noruega", "Alemanha", "Estados Unidos"], answer: 1, finished: false},
+        {type: "radio", text: "A primeira aparição do hóquei em uma olímpiada foi em que ano?", options: ["1920", "1924", "1904", "1997"], answer: 0, finished: false},
 
         {type: "text", text: "Qual o país responsável por originar o hóquei de gelo?" , answer: "CANADÁ", finished: false},
         {type: "text", text: "Quanto tempo dura em média uma partida de hóquei em minutos?" , answer: "60", finished: false},
         {type: "text", text: "O puck utilizado nas partidas de hóquei é geralmente:" , answer: "CONGELADO", finished: false},
         {type: "text", text: "Qual o maior campeonato de hóquei no gelo atualmente?" , answer: "NHL", finished: false},
         {type: "text", text: "De qual material eram feitos os primeiros discos de hoquei?" , answer: "ESTERCO DE VACA", finished: false},
+        {type: "text", text: "Desde que ano o Hóquei está presente nos Jogos Olímpicos de Inverno?" , answer: "1924", finished: false},
+        {type: "text", text: "Quando os primeiros torneios nos Estados Unidos foram organizados?" , answer: "1895", finished: false},
+        {type: "text", text: "Quantas nações participaram dos primeiros Jogos Olímpicos de Inverno?" , answer: "16", finished: false},
 
         {type: "checkbox", text: "Uma partida de hóquei tem 12 jogadores, sendo 6 de cada time." , answer: true, finished: false},
+        {type: "checkbox", text: "Lutas são permitidas pelas regras." , answer: false, finished: false},
+        {type: "checkbox", text: "Existem campeonatos de Hóquei feminino." , answer: true, finished: false},
+        {type: "checkbox", text: "Hóquei no gelo é a única modalidade existente do esporte." , answer: false, finished: false},
         {type: "checkbox", text: "Em caso de acidente com o goleiro oficial, um membro da platéia pode substitui-lo e jogar com o time em um campeonato, essa afirmação é:" , answer: true, finished: false},
     ];
     localStorage.setItem('questions', JSON.stringify(qList));
     localStorage.alreadyOpenedOnce = 1;
 }
 
-const HOW_MANY_QUESTIONS = 10;
+const HOW_MANY_QUESTIONS = 20;
 
 let questions = JSON.parse(localStorage.questions);
 

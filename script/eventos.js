@@ -20,9 +20,10 @@ const addBtn = document.getElementById('addBtn');
 const eventName = document.getElementById('eventName');
 const eventDate = document.getElementById('eventDate');
 let eventNmbr = 0;
+
 addBtn.addEventListener('click',
     () => {
-        if (eventDate.value == '' || eventName.value == '')
+        if (eventDate.value == '' || eventName.value == '' || eventName.value.length > 30)
             return
 
         let newEvent = document.createElement("tr");
@@ -34,9 +35,18 @@ addBtn.addEventListener('click',
         let dateRow = document.createElement("th");
         dateRow.textContent = eventDate.value;
 
+        let deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('class', 'button');
+        deleteBtn.textContent = "Deletar Evento";
+        deleteBtn.addEventListener('click',
+            () => {
+               document.getElementById(newEvent.id).remove();
+            });
+
         document.getElementById('list').appendChild(newEvent);
-        document.getElementById('event'+eventNmbr).appendChild(nameRow);
-        document.getElementById('event'+eventNmbr).appendChild(dateRow);
+        document.getElementById(newEvent.id).appendChild(nameRow);
+        document.getElementById(newEvent.id).appendChild(dateRow);
+        document.getElementById(newEvent.id).appendChild(deleteBtn);
 
         eventNmbr++;
     });

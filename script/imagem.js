@@ -1,7 +1,7 @@
-localStorage.imageIndex++;
-if (localStorage.imageIndex > 2)
-    localStorage.imageIndex = 0;
+if (localStorage.imageIndex == null || localStorage.imageIndex > 1)
+    localStorage.imageIndex = -1;
 
+localStorage.imageIndex++;
 document.write(`
     <div>
         <img src="./assets/i${localStorage.imageIndex}.jpg" class="bodyImage">

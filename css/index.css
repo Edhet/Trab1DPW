@@ -339,6 +339,10 @@ body {
     border-width: 1px;
 }
 
+td {
+    padding: 0.2rem;
+}
+
 /* ----Phone----------------------------------------- */
 
 @media (max-width:800px) {
@@ -351,7 +355,7 @@ body {
     }
 }
 
-@media (max-width:565px) {
+@media (max-width:1400px) {
     #navLogo {
         margin-left: 0;
     }
